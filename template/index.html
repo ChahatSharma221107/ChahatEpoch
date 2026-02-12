@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Documentation Agent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🚀 AI Documentation Agent</h1>
+        <p style="text-align:center; margin-bottom: 30px; color: #cccccc;">
+            Generate Python docstrings and project README files using AI
+        </p>
+
+        <!-- ========================= -->
+        <!-- Docstring Generator -->
+        <!-- ========================= -->
+        <div class="section">
+            <h2>📄 Generate Docstrings</h2>
+            <form action="/generate-docstring" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".py" required>
+                <button type="submit">Generate Docstrings</button>
+            </form>
+        </div>
+
+        <!-- ========================= -->
+        <!-- README Generator -->
+        <!-- ========================= -->
+        <div class="section">
+            <h2>📘 Generate Project README</h2>
+            <form action="/generate-readme" method="post">
+                <input type="text" name="folder_path" placeholder="Enter project folder path (e.g., ./my_project)" required>
+                <button type="submit">Generate README</button>
+            </form>
+        </div>
+
+        <!-- ========================= -->
+        <!-- Output Section -->
+        <!-- ========================= -->
+        <div class="section">
+            <h2>🧠 Output</h2>
+            <div class="output">
+                {% if result %}
+                    <pre>{{ result }}</pre>
+                {% else %}
+                    <p>Results will appear here after generation...</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align:center; margin-top:30px; font-size: 13px; color: #888;">
+            Built with FastAPI + Multi-Agent AI Architecture
+        </div>
+
+    </div>
+</body>
+</html>
+
